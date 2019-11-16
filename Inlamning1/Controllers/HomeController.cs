@@ -13,17 +13,19 @@ namespace Inlamning1.Controllers
         public class HomeController : Controller
         {
             private readonly BankRepository repo;
-            private HomeViewModel model;
-
+           
             public HomeController(BankRepository repo)
             {
-                this.repo = repo;
-                model = new HomeViewModel();
+                this.repo = repo;                
             }
             public IActionResult Index()
             {
-                model.Customers = repo.GetAllCustomers().ToList();
-                return View(model);
+            var viewmodel = new CustAcctViewModel
+            {
+                accounts = repo.accounts,
+                customers = repo.customers
+            };
+            return View(viewmodel);
             }
 
             public IActionResult Privacy()

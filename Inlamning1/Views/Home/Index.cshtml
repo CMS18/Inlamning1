@@ -1,18 +1,24 @@
-﻿@model Inlamning1.Models.ViewModels.HomeViewModel
+﻿@model Inlamning1.Models.ViewModels.CustAcctViewModel
+
+@{
+
+}
 
 <h4>Customers List:</h4>
 
-@foreach (var customer in Model.Customers)
+
+
+@foreach (var customer in Model.customers)
 {
-    <h6>@customer.Id, @customer.Name</h6>
+    <h6>@customer.customerId, @customer.customerName</h6>
+
     <h7>Account:</h7>
-    @foreach (var account in customer.Accounts)
+    @foreach (var account in Model.accounts)
     {
         <ul>
             <li>
-                @account.AccountId - Balance: @account.Balance 
+                @account.accountId - Balance: @account.balance
             </li>
         </ul>
     }
-
 }
