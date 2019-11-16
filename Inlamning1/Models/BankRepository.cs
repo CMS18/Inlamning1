@@ -44,5 +44,19 @@ namespace Inlamning1.Models
                 throw new ArgumentOutOfRangeException();
             }
         }
+
+        public void Transfer(Account from, Account to, decimal amount)
+        {
+            if (amount > 0 && from.balance >= amount && int.TryParse(amount.ToString(), out int i))
+            {
+                from.balance -= amount;
+                to.balance += amount;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+         
+        }
     }
 }

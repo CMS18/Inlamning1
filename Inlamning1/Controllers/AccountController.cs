@@ -69,5 +69,8 @@ namespace Inlamning1.Controllers
 
             return RedirectToAction("Index");
         }
+
+     
     }
 }
+
