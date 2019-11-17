@@ -20,5 +20,43 @@ namespace Inlamning1.Models
             accounts.Add(new Account { accountId = 2, balance = 2000m });
             accounts.Add(new Account { accountId = 3, balance = 3000m });
         }
+
+        public void Withdraw(Account account, decimal WdAmount)
+        {
+            if(WdAmount > 0 && account.balance >= WdAmount )
+            {
+                account.balance -= WdAmount;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public void Deposit(Account account, decimal DpAmount)
+        {
+            if(DpAmount > 0)
+            {
+                account.balance += DpAmount;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public void Transfer(Account from, Account to, decimal amount)
+        {
+            if (amount > 0 && from.balance >= amount && int.TryParse(amount.ToString(), out int i))
+            {
+                from.balance -= amount;
+                to.balance += amount;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+         
+        }
     }
 }
