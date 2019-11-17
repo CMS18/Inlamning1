@@ -1,0 +1,11 @@
+﻿<form asp-controller="Account" method="post">
+    <label>Account number</label>                
+    <Input name="acctId" /><br />
+    <label>Amount:</label>              
+    <Input name="amount" /><br />
+                
+    <input asp-action="Withdraw" type="submit" value="Withdraw" />
+    <input asp-action="Deposit" type="submit" value="Deposit" />
+</form>
+
+@TempData["info"]
